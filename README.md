@@ -2,7 +2,7 @@
 # macbac
 
 Lists and controls your macOS snapshots and backups for all your available modules.
-This is a pretty wrapper around tmutil for your convienince.
+This is a pretty wrapper around tmutil for your convenience.
 
 ```shell
 % macbac status
