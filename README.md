@@ -32,7 +32,7 @@ Pruning snapshot 2021-02-04-155845 (1/1)
 
 ## How does it work?
 
-It's a convenient wrapper around `tmutil`.
+It's a convenient wrapper around `tmutil` and basically replicates the local snapshot feature Time Machine would perform when you are backing up to a remote disk.
 
 ## Installation
 
