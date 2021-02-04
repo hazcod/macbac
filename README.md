@@ -7,8 +7,6 @@ Lists, controls and schedules efficient APFS snapshots for your convenience.
 # let's take space efficient APFS snapshots every hour
 # knowing they get cleaned up if necessary
 % ./macbac.sh schedule hourly
-Removing previous schedule...
-Removed previous snapshot schedule.
 Installing daemon config to /Users/user/Library/LaunchAgents/com.hazcod.macbac.plist
 Loading config to enable schedule...
 Scheduled hourly snapshots!
