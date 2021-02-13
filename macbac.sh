@@ -196,7 +196,7 @@ disable() {
 }
 
 getVolumes() {
-    ls -d /Volumes/*
+    ls -1d /Volumes/*
 }
 
 getSnapshots() {
@@ -222,9 +222,13 @@ listStatus() {
 }
 
 listSnapshots() {
-    volumes=$(getVolumes)
+    declare -a volumes
 
-    for volume in $(getVolumes); do
+    while read -r line; do
+        volumes+=("$line") 
+    done <<< $(getVolumes)
+
+    for volume in "${volumes[@]}"; do
         # show current volume
         echo -e "${BOLD}${volume}${NC}"
 
