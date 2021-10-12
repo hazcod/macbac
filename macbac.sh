@@ -15,7 +15,7 @@ BOLD='\033[1m'
 
 usage() {
     # show command cli usage help
-    echo "Usage: $0 <status|list|snapshot|enable|disable|schedule|deschedule|prune> <...>"
+    echo "Usage: $0 <status|list|snapshot|enable|disable|schedule|deschedule|prune|next> <...>"
     exit 1
 }
 
@@ -52,6 +52,38 @@ deschedule() {
     fi
 
     echo -e "Removed previous snapshot schedule."
+}
+
+showNext() {
+    parts=$(grep StartCalendarInterval "$PLIST_PATH" -C2 | tail -n1)
+    mode=$(echo "$parts" | cut -d '>' -f 2 | cut -d '<' -f 1)
+    number=$(echo "$parts" | cut -d '>' -f 4 | cut -d '<' -f 1)
+
+    if [[ "$mode" == "" ]]; then
+        error "No schedule detected. Did you run 'schedule'?"
+        exit 1
+    fi
+
+    local now
+    local unit
+
+    if [[ "$mode" == "Minute" ]]; then
+        now=$(date +'%M')
+        unit="minutes"
+    fi
+
+    if [[ "$mode" == "Hour" ]]; then
+        now=$(date +'%H')
+        unit="hours"
+    fi
+
+    diff="$((number - now))"
+    if (( diff < 0 )); then
+        diff=$((diff+60))
+    fi
+
+    echo "Your next snapshot is scheduled in the next ${diff} ${unit}."
+    return
 }
 
 schedule() {
@@ -321,6 +353,14 @@ case "$1" in
         fi
         
         prune "/" "$2"
+    ;;
+
+    "next")
+        if [[ "$#" -gt 1 ]]; then
+            usage
+        fi
+
+        showNext
     ;;
 
     *)

@@ -57,3 +57,5 @@ To schedule hourly snapshots, keeping 24: `macbac schedule hourly`
 To schedule hourly snapshots, keeping 3: `macbac schedule hourly 3` 
 
 To schedule daily snapshots, keeping 7: `macbac schedule daily`
+
+To view when the next snapshot is going to be taken: `macbac next`
