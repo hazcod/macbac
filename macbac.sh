@@ -111,6 +111,8 @@ schedule() {
         deschedule
     fi
 
+    mkdir -p "$HOME/Library/LaunchAgents/"
+
     echo "Installing daemon config to ${PLIST_PATH}"
     cat >"$PLIST_PATH" <<EOL
 <?xml version="1.0" encoding="UTF-8"?>
