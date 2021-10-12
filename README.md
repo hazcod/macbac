@@ -6,9 +6,7 @@ Lists, controls and schedules efficient APFS snapshots for your convenience.
 ```shell
 # let's take space efficient APFS snapshots every hour
 # knowing they get cleaned up if necessary
-% ./macbac.sh schedule hourly
-Removing previous schedule...
-Removed previous snapshot schedule.
+% macbac schedule hourly
 Installing daemon config to /Users/user/Library/LaunchAgents/com.hazcod.macbac.plist
 Loading config to enable schedule...
 Scheduled hourly snapshots!
@@ -34,7 +32,7 @@ Pruning snapshot 2021-02-04-155845 (1/1)
 
 ## How does it work?
 
-It's a convenient wrapper around `tmutil`.
+It's a convenient wrapper around `tmutil` and basically replicates the local snapshot feature Time Machine would perform when you are backing up to a remote disk.
 
 ## Installation
 
