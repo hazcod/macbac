@@ -38,6 +38,13 @@ It's a convenient wrapper around `tmutil` and basically replicates the local sna
 
 Installation can be done straight from [my Homebrew tap](https://github.com/hazcod/homebrew-hazcod) via `brew install hazcod/homebrew-hazcod/macbac` or just copy `macbac.sh` to  your filesystem.
 
+## Setup
+
+1. First enable Time Machine by running `macbac enable`.
+   You may need to add `Terminal.app` to Full Disk Access in Security & Privacy.
+   
+2. Now schedule your snapshots e.g. hourly via `macbac schedule hourly`.
+
 ## Usage
 
 `Usage: macbac <status|list|snapshot|enable|disable|schedule|deschedule|prune> <...>`
