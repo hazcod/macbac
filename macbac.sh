@@ -256,11 +256,7 @@ listStatus() {
 }
 
 listSnapshots() {
-    declare -a volumes
-
-    while read -r line; do
-        volumes+=("$line") 
-    done <<< $(getVolumes)
+    volumes=($(getVolumes))
 
     for volume in "${volumes[@]}"; do
         # show current volume
